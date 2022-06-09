@@ -1,0 +1,6 @@
+writer(TM) | by the Technology Club
+
+writer was developed as a standalone python program. It is intended for the user to be able to edit a blogpage without having to delve into the actual HTML of the webpage, and also without compromising the strucuture of the code.
+writer uses the beautifulsoup4 module.
+
+NOTE: writer is still in beta and is intended to be published as a .exe file.

@@ -1,2 +1,1 @@
-# ashok-pathak.github.io
-blog-repository
+# blog-website
