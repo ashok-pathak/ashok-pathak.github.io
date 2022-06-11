@@ -11,38 +11,52 @@ with open('template.html') as temp:
 now = datetime.datetime.now()
 
 head = input('Enter title>')
+soup.head.append(soup.new_tag("head", string=head))
 original_tag = soup.body
+title = soup.new_tag("title")
+soup.head.append(title)
+title.string = head + ' | Blogpost'
 tag = soup.new_tag("div", id="blogpost")
 original_tag.insert(4, tag)
-hlink = soup.new_tag('a', href='blogs/'+head.replace(' ', '-')+'.html')
 h = soup.new_tag('h1')
+tag.append(h)
 h.string = head
-hlink.append(h)
-tag.append(hlink)
 date = soup.new_tag('p')
 date.string = now.strftime("%d %b %Y")
 tag.append(date)
 
 doc_src = input('Enter Document Source>')
 doc = Document(doc_src)
-
+allText=''
 for paragraph in doc.paragraphs:
-    if paragraph.text[0] == '.':
-        if paragraph.text[1] == '#':
-            bT = soup.new_tag('b')
-            addHeading(soup, bT, paragraph.text[2:])
-            tag.append(bT)
+    if len(paragraph.text)>0:
+        if paragraph.text[0] == '.':
+            if len(paragraph.text) > 1:
+                if paragraph.text[1] == '#':
+                    bT = soup.new_tag('b')
+                    addHeading(soup, bT, paragraph.text[2:])
+                    tag.append(bT)
+                    allText+=paragraph.text[2:]
+                    allText+='\n'
+            else:
+                addHeading(soup, tag, paragraph.text[1:])
+                allText+=paragraph.text[1:]
+                allText+='\n'
         else:
-            addHeading(soup, tag, paragraph.text[1:])
-    else:
-        writePara(soup, tag, paragraph.text)
+            writePara(soup, tag, paragraph.text)
+            allText+=paragraph.text
+            allText+='\n'
 
-bodyText = tag.contents[2].text[:min(100, len(tag.contents[2].text))]+'...'
+
+print(allText)
+bodyText = allText[:min(500, len(allText))]+'...'
 new_temp_tag = tempSoup.new_tag("div", id="blogpost")
 tempSoup.body.insert(4, new_temp_tag)
-h = tempSoup.new_tag('h1')
+hlink = soup.new_tag('a', href='blogs/'+head.replace(' ', '-')+'.html')
+h = soup.new_tag('h1')
+hlink.append(h)
 h.string = head
-new_temp_tag.append(h)
+new_temp_tag.append(hlink)
 date = tempSoup.new_tag('p')
 date.string = now.strftime("%d %b %Y")
 new_temp_tag.append(date)

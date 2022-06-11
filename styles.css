@@ -1,28 +1,33 @@
 body{
-  background-color: black;
+  background-color: #88B2CC;
 }
 @keyframes li {
-  from {color: black; letter-spacing: 5px; background-color: white;}
+  from {color: white; letter-spacing: 5px; background-color: #ff856a;}
+  to {color: #ff856a; letter-spacing: 7px; background-color: black;}
+}
+@keyframes liactive {
+  from {color:#ff856a;; letter-spacing: 5px; background-color: white;}
   to {color: white; letter-spacing: 7px; background-color: black;}
 }
 @keyframes img {
-  from {content:url("dev_logo.png"); background-color: white; font-size: 10px;}
-  to{content:url("dev_logo_hover.png"); background-color: black; font-size: 12px;}
+  from {content:url("logos/twtw.png"); background-color: #88B2CC; font-size: 10px;}
+  to{content:url("logos/twtb.png"); background-color: black; font-size: 12px;}
 }
 #titimg{
-  width: 40px;
+  width: 48.6016451234px;
   height: 40px;
   padding: 18px;
-  content:url("dev_logo.png");
+  content:url("logos/twtw.png");
 }
 #titimg:hover{
   animation-name: img;
   animation-duration: 1s;
-  content:url("dev_logo_hover.png");
+  content:url("logos/twtb.png");
   background-color: black;
 }
 .table{
   padding: 0;
+  padding-bottom: 50px;
 }
 .titles {
   position: relative;
@@ -34,7 +39,9 @@ body{
   z-index: -1;
 }
 
-
+a {
+  text-decoration: none;
+}
 ul#nav{
   text-align: center;
   list-style: inside;
@@ -42,7 +49,7 @@ ul#nav{
   position: fixed;
   margin: 0;
   padding: 0;
-  background-color: white; 
+  background-color: #ff856a; 
   top: 0;
   left: 0;
   right: 0;
@@ -62,12 +69,12 @@ li{
   float: left;
   align-content: center;
   padding: 0;
-  padding-right: 10px;
+  padding-right:  0px;
   
 }
 li a {
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 20px 25px;
   text-decoration: none;
@@ -77,12 +84,30 @@ li a {
 li a:hover{
   animation-name: li;
   animation-duration: .5s;
-  color: white;
+  color: #ff856a;
   font-size: 10px;
   letter-spacing: 7px;
   background-color: black;
 }
+#active a{
+  display: block;
+  color:#ff856a;
+  letter-spacing: 5px;
+  text-align: center;
+  padding: 20px 25px;
+  text-decoration: none;
+  font-size: 10px;
+  background-color: white;
+}
+#active a:hover{
+  animation-name: liactive;
+  animation-duration: .5s;
+  letter-spacing: 7px;
+  color:white;
+  background-color: black;
+}
 #blogpost{
+  border-radius: 25px;
   padding-left: 10%;
   padding-right: 10%;
   padding-top: 3%;
@@ -93,13 +118,77 @@ li a:hover{
   background-color: white;
 }
 #blogpost h1{
-  font-family:didot, constantia;
+  font-family:Libre Baskerville, constantia;
 }
 #blogpost h2{
-  font-family:didot, constantia;
+  font-family:Libre Baskerville, constantia;
 }
 #blogpost p{
-  font-family:plantin,cambria;
+  font-family:Libre Baskerville,cambria;
+}
+.about2{
+  font-family: Product Sans;
+  border-radius: 25px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 3%;
+  margin-top: 5%;
+  margin-left: 3%;
+  margin-right: 3%;
+  padding-bottom: 3%; 
+  background-color: white;
+}
+.about2 #para{
+  margin-right: 10px;
+  border: #9f9f9f;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 10px;
+}
+.about2 #para h1{
+  font-size: 50px;
+  letter-spacing: 5px;
+  font-family: product sans;
+}
+.about2 #aboutimg {
+  height: 300px;
+  width: 300px;
+  margin-top: 10px;
+  background-image: url('about.jpg'); background-size: cover; background-position: center;
+  border-width: 3px;
+  border-radius: 10px;
+}
+.about{ 
+  display: flex;
+  font-family: Product Sans;
+  border-radius: 25px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 3%;
+  margin-top: 5%;
+  margin-left: 3%;
+  margin-right: 3%;
+  padding-bottom: 3%; 
+  background-color: white;
+}
+.about #para {
+  width: 70%;
+  margin-right: 10px;
+  border: #9f9f9f;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 10px;
+}
+.about #para h1{
+  font-size: 50px;
+  letter-spacing: 5px;
+  font-family: product sans;
+}
+.about #aboutimg {
+  background-image: url('about.jpg'); background-size: cover; background-position: center;
+  flex-grow: 1;
+  border-width: 3px;
+  border-radius: 10px;
 }
 hr {
   display: block;

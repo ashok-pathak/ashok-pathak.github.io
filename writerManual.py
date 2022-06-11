@@ -22,12 +22,16 @@ NOTE: THIS SOFTWARE IS STILL IN BETA!!!
 print(rules)
 head = input('Enter title>')
 original_tag = soup.body
+title = soup.new_tag("title")
+soup.head.append(title)
+title.string = head + ' | Blogpost'
 new_tag = soup.new_tag("div", id="blogpost")
 original_tag.insert(4, new_tag)
-hlink = soup.new_tag('a', href='blogs/'+head.replace(' ', '-')+'.html')
 h = soup.new_tag('h1')
-h.string = head
-hlink.append(h)
+hlink = soup.new_tag('a', href='blogs/'+head.replace(' ', '-')+'.html')
+h.append(hlink)
+hlink.string = head
+new_tag.append(h)
 date = soup.new_tag('p')
 date.string = now.strftime("%d %b %Y")
 new_tag.append(date)
@@ -63,7 +67,8 @@ while True:
     else:
         print('Invalid command! Moving to newline!!')
 
-bodyText = new_tag.contents[2].text[:min(100, len(new_tag.contents[2].text))]+'...'
+print(new_tag.contents)
+bodyText = new_tag.contents[2].text[:min(500, len(new_tag.contents[2].text))]+'...'
 new_temp_tag = tempSoup.new_tag("div", id="blogpost")
 tempSoup.body.insert(4, new_temp_tag)
 h = tempSoup.new_tag('h1')
