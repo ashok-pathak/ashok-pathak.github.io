@@ -1,3 +1,13 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(Product\ Sans\ Regular.ttf);
+}
+
+@font-face {
+  font-family: Libre Baskerville;
+  src: url(LibreBaskerville-Regular.ttf);
+}
+
 body{
   background-color: #88B2CC;
 }
