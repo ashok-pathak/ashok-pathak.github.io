@@ -17,9 +17,9 @@ h = soup.new_tag('h1')
 h.string = title
 
 ifrm = soup.new_tag('iframe', src = url, height="200px", width="100%", frameborder="0", scrolling="yes")
-
-podDiv.append(ifrm)
 podDiv.append(h)
+podDiv.append(ifrm)
+
 
 soup.body.insert(4, podDiv)
 with open('podcasts.html','w+') as outf:
